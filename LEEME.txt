@@ -1,0 +1,45 @@
+PROYECTO SHERLOCK · Lee, razona y resuelve el misterio
+======================================================
+
+ESTRUCTURA
+  index.html            Página principal
+  css/estilos.css       Aspecto visual (colores, tipografías, tamaños)
+  js/app.js             Funcionamiento (carrusel, pantalla de carga, juego, PDF)
+  data/casos.json       Todos los textos de las asignaturas y de los 24 casos
+  img/general/logotipo.jpg   Logotipo (portada, barra superior, ayuda, pantalla de carga y PDF)
+  img/<asignatura>/asignatura.svg            Imagen de la tarjeta de la asignatura
+  img/<asignatura>/<caso>/portada.svg        Carátula del caso
+  img/<asignatura>/<caso>/escena.svg         Imagen grande de la introducción
+  img/<asignatura>/<caso>/sospechoso-1.svg   ... sospechoso-6.svg (en el mismo orden que en casos.json)
+
+CÓMO CAMBIAR UNA IMAGEN
+  1. Pon tu imagen en la carpeta del caso (por ejemplo, img/plastica/espejo-meninas/).
+  2. O bien le pones exactamente el mismo nombre que la que sustituyes (portada.svg),
+     o bien cambias la ruta en data/casos.json (por ejemplo "portada.jpg").
+  Medidas recomendadas:
+     portada        vertical 2:3   (por ejemplo, 800 x 1200 px)
+     escena         panorámica     (por ejemplo, 1280 x 520 px)
+     sospechosos    vertical 4:5   (por ejemplo, 480 x 600 px)
+     asignatura     horizontal 16:10
+  El título del caso se escribe encima de la portada automáticamente, así que la imagen no necesita texto.
+
+CÓMO CAMBIAR TEXTOS O AÑADIR CASOS
+  Todo está en data/casos.json. Cada caso tiene: titulo, epoca, resumen, mision,
+  introduccion (párrafos), sospechosos (nombre, descripcion, imagen, ficha),
+  respuesta (número del 1 al 6: el sospechoso correcto), pistas, final, saber_mas y pregunta
+  (la pregunta que aparece en el certificado PDF).
+  Para añadir un caso, copia uno entero, cambia el "id" (sin espacios ni tildes) y crea su carpeta de imágenes.
+  Si editas el JSON, revisa que no falten comas ni comillas (puedes comprobarlo en jsonlint.com).
+
+CÓMO PUBLICARLO
+  Los navegadores no dejan leer casos.json si abres index.html con doble clic.
+  Opciones:
+   - GitHub Pages: sube toda la carpeta a un repositorio y activa Pages.
+   - La web de tu centro o cualquier alojamiento web.
+   - En tu ordenador: Visual Studio Code con la extensión Live Server.
+  Hace falta conexión a internet para las tipografías y para generar el PDF.
+
+AJUSTES RÁPIDOS (al principio de js/app.js)
+  HERO_SEGUNDOS  segundos entre un caso destacado y el siguiente (7)
+  CARGA_MS       duración de la pantalla de carga en milisegundos (3600)
+  LOGO           ruta del logotipo (img/general/logotipo.jpg)
