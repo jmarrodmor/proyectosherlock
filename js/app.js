@@ -10,10 +10,10 @@ var D=null,app=document.getElementById("app");
 var HERO_SEGUNDOS=7;          // segundos que tarda en cambiar el caso destacado
 var CARGA_MS=3600;            // duración de la pantalla de carga
 
-var LOGO="img/general/logotipo.png";   // logotipo del proyecto (cámbialo aquí si usas otro nombre)
+var LOGO="img/general/logotipo.jpg";   // logotipo del proyecto (cámbialo aquí si usas otro nombre)
 var LENS='<img class="lens" src="'+LOGO+'" alt="" onerror="this.remove()">';
 var LUPA='<svg class="lens" viewBox="0 0 64 64" aria-hidden="true"><circle cx="26" cy="26" r="17" fill="none" stroke="currentColor" stroke-width="6"/><circle cx="26" cy="26" r="11" fill="currentColor" opacity=".18"/><path d="M38.5 38.5 L56 56" stroke="currentColor" stroke-width="8" stroke-linecap="round"/><path d="M18 20 Q22 14 30 15" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/></svg>';   // lupa de la pantalla de carga
-var VERSION_IMG="3";          // si cambias imágenes y el navegador muestra las antiguas, sube este número
+var VERSION_IMG="4";          // si cambias imágenes y el navegador muestra las antiguas, sube este número
 var PLAY='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z" fill="currentColor"/></svg>';
 
 /* ---------- utilidades ---------- */
