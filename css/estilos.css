@@ -345,3 +345,49 @@ img.lens{object-fit:contain;border-radius:6px}
 /* ===== Textos justificados ===== */
 .read .lead p,.clue p,details.reread p{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
 .loader svg.lens{width:140px;height:140px}
+
+/* ===== Flechas de desplazamiento ===== */
+.rowwrap{position:relative}
+.arr{position:absolute;top:0;bottom:56px;z-index:3;width:46px;border:0;padding:0;display:grid;place-items:center;color:var(--fg);background:linear-gradient(90deg,rgba(10,10,12,.92),rgba(10,10,12,0));opacity:0;transition:opacity .2s ease}
+.arr.l{left:-12px}
+.arr.r{right:-12px;background:linear-gradient(270deg,rgba(10,10,12,.92),rgba(10,10,12,0))}
+.arr svg{width:34px;height:34px;padding:6px;border-radius:50%;background:rgba(30,30,36,.9);box-shadow:0 6px 18px rgba(0,0,0,.6);transition:transform .15s ease}
+.arr:hover svg{transform:scale(1.12);background:var(--acc)}
+.rowwrap:hover .arr,.arr:focus-visible{opacity:1}
+.arr:disabled{opacity:0!important;pointer-events:none}
+@media (hover:none){.arr{opacity:1}}
+.harr{position:absolute;top:50%;z-index:4;width:48px;height:48px;margin-top:-24px;border:0;border-radius:50%;display:grid;place-items:center;color:var(--fg);background:rgba(20,20,24,.65);backdrop-filter:blur(6px);transition:background .15s ease,transform .15s ease}
+.harr svg{width:24px;height:24px}
+.harr:hover{background:var(--acc);transform:scale(1.08)}
+.harr.l{left:10px}.harr.r{right:10px}
+.hero .wrap{padding-inline:clamp(64px,6vw,90px)}
+@media (max-width:760px){.harr{top:auto;bottom:16px;margin-top:0;width:40px;height:40px}.hero .wrap{padding-inline:16px;padding-block-end:72px}.harr.l{left:16px}.harr.r{left:64px;right:auto}}
+
+/* ===== Cuestionario ===== */
+body.noscroll{overflow:hidden}
+.quizcta{border-style:solid;border-color:var(--case,var(--acc));background:rgba(255,255,255,.03)}
+.quiz{position:fixed;inset:0;z-index:90;background:var(--bg);color:var(--fg);overflow-y:auto;font-family:var(--ui)}
+.qhead{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:12px clamp(16px,4vw,40px);padding-top:calc(env(safe-area-inset-top,0px) + 12px);background:rgba(10,10,12,.96);border-bottom:1px solid var(--line)}
+.qbrand{display:flex;align-items:center;gap:12px;min-width:0;flex:1}
+.qbrand img.lens{width:40px;height:40px}
+.qbrand b{display:block;font-size:16px;line-height:1.25}
+.qbrand small{color:var(--mut);font-size:13px}
+.qprog{display:flex;align-items:center;gap:10px;min-width:160px}
+.qprog span{font-weight:800;font-variant-numeric:tabular-nums}
+.qprog i{display:block;height:6px;border-radius:3px;background:var(--ok);flex:1;max-width:140px;min-width:4px;transition:width .3s ease}
+.qprog::after{content:"";display:none}
+.qbody{max-width:860px;margin:0 auto;padding:28px clamp(16px,4vw,40px) 80px;display:flex;flex-direction:column;gap:24px}
+.qintro{margin:0;font-size:16px;color:#d8d5ce;background:var(--bg2);border-left:4px solid var(--acc);padding:14px 16px;border-radius:6px;line-height:1.55}
+.qitem{display:flex;flex-direction:column;gap:10px}
+.qitem label{display:flex;gap:12px;align-items:flex-start;font-family:var(--read);font-size:19px;line-height:1.5;color:var(--fg)}
+.qn{flex:none;width:32px;height:32px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-family:var(--ui);font-weight:800;font-size:15px;margin-top:2px}
+.qitem textarea{width:100%;min-height:150px;resize:vertical;background:var(--paper);color:var(--ink);border:2px solid transparent;border-radius:8px;padding:14px 16px;font-family:var(--read);font-size:17px;line-height:1.6}
+.qitem textarea:focus{outline:none;border-color:var(--acc)}
+.qcount{align-self:flex-end;font-size:13px;font-weight:700;color:var(--acc2);font-variant-numeric:tabular-nums}
+.qcount.ok{color:var(--ok)}
+.qcount.ok::before{content:"✓ "}
+.qsend{display:flex;flex-direction:column;align-items:flex-start;gap:10px;border-top:1px solid var(--line);padding-top:20px}
+.qsend p{margin:0;color:var(--mut)}
+.qdone{align-items:flex-start}
+.qwarn{position:fixed;inset:0;z-index:95;background:rgba(0,0,0,.78);display:flex;align-items:center;justify-content:center;padding:16px}
+.qwarn .dlg{max-width:480px;border:2px solid var(--acc)}
