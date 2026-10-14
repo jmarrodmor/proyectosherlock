@@ -9,11 +9,14 @@
 var D=null,app=document.getElementById("app");
 var HERO_SEGUNDOS=7;          // segundos que tarda en cambiar el caso destacado
 var CARGA_MS=3600;            // duración de la pantalla de carga
+var MIN_PALABRAS=50;          // palabras mínimas de cada respuesta del cuestionario
+var AVISOS_SALIDA=1;          // avisos antes de borrar el cuestionario si el alumno sale de la página
 
 var LOGO="img/general/logotipo.png";   // logotipo del proyecto (cámbialo aquí si usas otro nombre)
 var LENS='<img class="lens" src="'+LOGO+'" alt="" onerror="this.remove()">';
 var LUPA='<svg class="lens" viewBox="0 0 64 64" aria-hidden="true"><circle cx="26" cy="26" r="17" fill="none" stroke="currentColor" stroke-width="6"/><circle cx="26" cy="26" r="11" fill="currentColor" opacity=".18"/><path d="M38.5 38.5 L56 56" stroke="currentColor" stroke-width="8" stroke-linecap="round"/><path d="M18 20 Q22 14 30 15" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/></svg>';   // lupa de la pantalla de carga
 var VERSION_IMG="4";          // si cambias imágenes y el navegador muestra las antiguas, sube este número
+var ARR_L='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',ARR_R='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 var PLAY='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z" fill="currentColor"/></svg>';
 
 /* ---------- utilidades ---------- */
@@ -55,18 +58,20 @@ function gate(){
 function buildFeat(){var rounds=[];D.asignaturas.forEach(function(s){var l=porAsig(s.id);if(l.length)rounds.push(l[Math.floor(Math.random()*l.length)])});st.feat=rounds;st.hero=Math.floor(Math.random()*rounds.length)}
 function heroInner(){var c=st.feat[st.hero],s=sub(c.asignatura);
  return '<div class="bgart" aria-hidden="true">'+img(c.portada,"")+'</div><div class="wrap slide" key="'+c.id+'"><div class="txt"><span class="top10">'+LENS.replace('class="lens"','class="lens" style="width:26px;height:26px;color:var(--acc)"')+' Caso destacado</span><h1 class="disp">'+esc(c.titulo)+'</h1><div class="meta"><span class="chip c" style="background:'+s.color+'">'+esc(s.nombre)+'</span><span>'+esc(c.epoca)+'</span>'+(c.idioma==="en"?'<span class="lang-en">EN</span>':'')+(isDone(c.id)?'<span class="done">✓ Resuelto</span>':'')+'</div><p>'+esc(c.resumen)+'</p><div class="acts"><button class="btn" data-a="start" data-id="'+c.id+'">'+PLAY+'Empezar</button><button class="btn ghost" data-a="detail" data-id="'+c.id+'">Más información</button></div>'+
- '<div class="dots'+(heroPaused?' paused':'')+'" style="--dur:'+HERO_SEGUNDOS+'s" role="tablist" aria-label="Casos destacados">'+st.feat.map(function(f,i){return '<button role="tab" aria-label="'+esc(f.titulo)+'" aria-current="'+(i===st.hero)+'" data-a="hero" data-i="'+i+'"></button>'}).join('')+'</div></div><div class="poster">'+pw(c)+'</div></div>'}
+ '<div class="dots'+(heroPaused?' paused':'')+'" style="--dur:'+HERO_SEGUNDOS+'s" role="tablist" aria-label="Casos destacados">'+st.feat.map(function(f,i){return '<button role="tab" aria-label="'+esc(f.titulo)+'" aria-current="'+(i===st.hero)+'" data-a="hero" data-i="'+i+'"></button>'}).join('')+'</div></div><div class="poster">'+pw(c)+'</div></div><button class="harr l" data-a="heroprev" aria-label="Caso destacado anterior">'+ARR_L+'</button><button class="harr r" data-a="heronext" aria-label="Caso destacado siguiente">'+ARR_R+'</button>'}
 var heroTimer=null,heroPaused=false;
 function startHero(){stopHero();heroTimer=setInterval(function(){if(heroPaused||st.detail||st.screen!=="home")return;st.hero=(st.hero+1)%st.feat.length;paintHero()},HERO_SEGUNDOS*1000)}
 function stopHero(){if(heroTimer)clearInterval(heroTimer);heroTimer=null}
 function paintHero(){var el=document.getElementById("hero");if(el)el.innerHTML=heroInner()}
+function row(inner){return '<div class="rowwrap"><button class="arr l" data-a="scroll" data-d="-1" aria-label="Ver casos anteriores">'+ARR_L+'</button><div class="track">'+inner+'</div><button class="arr r" data-a="scroll" data-d="1" aria-label="Ver más casos">'+ARR_R+'</button></div>'}
+function updArrows(){[].forEach.call(app.querySelectorAll(".rowwrap"),function(w){var t=w.querySelector(".track"),max=t.scrollWidth-t.clientWidth-2;w.querySelector(".arr.l").disabled=t.scrollLeft<=2;w.querySelector(".arr.r").disabled=t.scrollLeft>=max})}
 function home(){var h=topbar();
  h+='<section class="hero" id="hero">'+heroInner()+'</section>';
  h+='<div class="wrap"><section class="sec"><h2>Asignaturas</h2><div class="tiles">';
  D.asignaturas.forEach(function(s){h+='<button class="tile" data-a="sub" data-s="'+s.id+'">'+img(s.imagen,"")+'<span>'+esc(s.nombre)+'</span><small>'+porAsig(s.id).length+' casos</small></button>'});
  h+='</div></section>';
- var dl=doneList().map(caso).filter(Boolean);if(dl.length)h+='<section class="sec"><h2>Ya resueltos por '+esc(st.name.split(" ")[0])+'</h2><div class="track">'+dl.map(function(c){return posterCard(c)}).join('')+'</div></section>';
- D.asignaturas.forEach(function(s){h+='<section class="sec"><h2>'+esc(s.nombre)+' <button data-a="sub" data-s="'+s.id+'">Ver todos ›</button></h2><div class="track">'+porAsig(s.id).map(function(c){return posterCard(c)}).join('')+'</div></section>'});
+ var dl=doneList().map(caso).filter(Boolean);if(dl.length)h+='<section class="sec"><h2>Ya resueltos por '+esc(st.name.split(" ")[0])+'</h2>'+row(dl.map(function(c){return posterCard(c)}).join(''))+'></section>';
+ D.asignaturas.forEach(function(s){h+='<section class="sec"><h2>'+esc(s.nombre)+' <button data-a="sub" data-s="'+s.id+'">Ver todos ›</button></h2>'+row(porAsig(s.id).map(function(c){return posterCard(c)}).join(''))+'></section>'});
  return h+'<footer class="foot">Proyecto Sherlock · Los personajes de los casos son ficticios salvo que el propio caso indique lo contrario; el contexto histórico, artístico y científico es real. El progreso se guarda en este navegador.</footer></div>'}
 
 function subPage(){var s=sub(st.sub),list=porAsig(s.id);
@@ -117,7 +122,7 @@ function result(){var c=caso(st.ci),s=sub(c.asignatura),r=st.result,en=c.idioma=
  h+=(st.flash?'<div class="flash '+st.flash+'" aria-hidden="true"></div>':'');
  if(r.win){var p=c.sospechosos[ans(c)];
   h+='<div class="wrap" style="--case:'+s.color+'"><section class="res"><span class="eyebrow" style="color:'+s.color+'">'+esc(s.nombre)+' · '+esc(c.titulo)+'</span><div class="verdict win">Misterio resuelto</div><div class="who">'+img(p.imagen,p.nombre)+'<div><span class="eyebrow">La respuesta era</span><div class="disp" style="font-size:40px">'+esc(p.nombre)+'</div><p class="note">Pistas leídas: '+st.shown+' de '+c.pistas.length+' · Intentos: '+(st.tries+1)+'</p></div></div><p class="body" lang="'+(en?"en":"es")+'">'+esc(c.final)+'</p><div class="facts" lang="'+(en?"en":"es")+'"><h3>'+(en?"Did you know?":"Para saber más")+'</h3><ul>'+c.saber_mas.map(function(f){return '<li>'+esc(f)+'</li>'}).join('')+'</ul></div>'+
-  '<div class="cert"><p>Descarga tu certificado en PDF con tu nombre, el resumen del caso y una pregunta para responder. Entrégaselo a tu profesor.</p><button class="btn red" data-a="pdf" id="pdfbtn">Descargar certificado (PDF)</button></div><div class="acts"><button class="btn ghost" data-a="sub" data-s="'+c.asignatura+'">Más casos de '+esc(s.nombre)+'</button><button class="btn ghost" data-a="home">Inicio</button></div></section></div>'}
+  '<div class="cert"><p>Descarga tu certificado en PDF con tu nombre, el resumen del caso y una pregunta para responder. Entrégaselo a tu profesor.</p><button class="btn red" data-a="pdf" id="pdfbtn">Descargar certificado (PDF)</button></div><div class="cert quizcta"><p><b>Cuestionario final.</b> '+(c.cuestionario||[]).length+' preguntas para pensar, opinar y escribir. Se hace en pantalla completa y cada respuesta necesita al menos '+MIN_PALABRAS+' palabras. Si sales antes de terminar, se borrarán tus respuestas.</p><button class="btn" data-a="quiz">Hacer el cuestionario</button></div><div class="acts"><button class="btn ghost" data-a="sub" data-s="'+c.asignatura+'">Más casos de '+esc(s.nombre)+'</button><button class="btn ghost" data-a="home">Inicio</button></div></section></div>'}
  else{var w=c.sospechosos[r.pick];
   h+='<div class="wrap"><section class="res"><span class="eyebrow">'+esc(c.titulo)+'</span><div class="verdict lose">Respuesta equivocada</div><div class="who">'+img(w.imagen,w.nombre)+'<div><span class="eyebrow">Elegiste</span><div class="disp" style="font-size:40px">'+esc(w.nombre)+'</div></div></div><p class="body">'+esc(w.nombre)+' no es la respuesta: alguna de las pistas que has leído, o de las que te faltan, no encaja con su ficha. Vuelve a empezar y lee cada pista despacio, buscando el dato concreto que permite descartar a alguien.</p><div class="acts"><button class="btn red" data-a="retry">Volver a intentarlo</button><button class="btn ghost" data-a="sub" data-s="'+c.asignatura+'">Elegir otro caso</button></div></section></div>'}
  return h}
@@ -132,6 +137,7 @@ function render(){var h;
  if(st.help)h+=helpView();
  app.innerHTML=h;st.fresh=false;st.flash=null;
  if(st.screen==="home")startHero();else stopHero();
+ [].forEach.call(app.querySelectorAll(".track"),function(t){t.addEventListener("scroll",updArrows,{passive:true})});updArrows();
  var f=document.getElementById("gateform");if(f){f.addEventListener("submit",onGate);var i=document.getElementById("nm");if(i&&!st.name)i.focus()}
  var x=app.querySelector(".modal-bg [data-a=confirm]")||app.querySelector(".modal-bg .x");if(x)x.focus()}
 function go(scr){st.screen=scr;st.help=false;st.detail=null;st.dossier=null;st.pick=null;render();window.scrollTo(0,0)}
@@ -150,6 +156,9 @@ app.addEventListener("click",function(e){var b=e.target.closest("[data-a]");if(!
  else if(a==="closemodal"){st.detail=null;st.dossier=null;st.help=false;render()}
  else if(a==="help"){st.help=true;render()}
  else if(a==="scrollread"){var L=document.getElementById("lead");if(L)window.scrollTo({top:L.getBoundingClientRect().top+window.scrollY-90,behavior:"smooth"})}
+ else if(a==="heroprev"||a==="heronext"){st.hero=(st.hero+(a==="heronext"?1:-1)+st.feat.length)%st.feat.length;paintHero();startHero()}
+ else if(a==="scroll"){var t=b.parentNode.querySelector(".track");t.scrollBy({left:(+b.getAttribute("data-d"))*t.clientWidth*0.85,behavior:"smooth"})}
+ else if(a==="quiz")Quiz.open(c);
  else if(a==="hero"){st.hero=i;paintHero();startHero()}
  else if(a==="start")startCase(b.getAttribute("data-id"));
  else if(a==="go"){st.shown=1;st.out=[];st.tab="pis";st.fresh=true;go("board")}
@@ -167,7 +176,7 @@ app.addEventListener("click",function(e){var b=e.target.closest("[data-a]");if(!
 });
 app.addEventListener("mouseover",function(e){if(e.target.closest&&e.target.closest("#hero .txt, #hero .poster")){if(!heroPaused){heroPaused=true;var d=app.querySelector("#hero .dots");if(d)d.classList.add("paused")}}});
 app.addEventListener("mouseout",function(e){var h=document.getElementById("hero");if(heroPaused&&h&&!h.contains(e.relatedTarget)){heroPaused=false;var d=app.querySelector("#hero .dots");if(d)d.classList.remove("paused")}});
-document.addEventListener("keydown",function(e){if(e.key==="Escape"){if(document.querySelector(".loader"))return;if(st.help)st.help=false;else if(st.pick!==null)st.pick=null;else if(st.dossier!==null)st.dossier=null;else if(st.detail)st.detail=null;else return;render()}});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){if(document.querySelector(".loader")||document.querySelector(".quiz"))return;if(st.help)st.help=false;else if(st.pick!==null)st.pick=null;else if(st.dossier!==null)st.dossier=null;else if(st.detail)st.detail=null;else return;render()}});
 
 window.addEventListener("scroll",function(){var f=document.getElementById("readfill");if(!f)return;var d=document.documentElement,max=d.scrollHeight-window.innerHeight,p=max>0?Math.min(1,window.scrollY/max):1;f.style.transform="scaleX("+p+")";var fc=app.querySelector(".floatcue");if(fc)fc.classList.toggle("gone",window.scrollY>140)},{passive:true});
 
@@ -211,6 +220,85 @@ function makePDF(c,btn){if(!window.jspdf){toast("No se ha podido cargar el gener
  }).catch(function(){btn.disabled=false;btn.textContent="Descargar certificado (PDF)";toast("No se ha podido crear el PDF.")})}
 function toast(t){var d=document.createElement("div");d.className="toast";d.setAttribute("role","status");d.textContent=t;document.body.appendChild(d);setTimeout(function(){d.remove()},2600)}
 
+/* ---------- cuestionario final (pantalla completa) ---------- */
+var Quiz=(function(){
+ var el=null,c=null,ans=[],salidas=0,done=false,fs=false,warnEl=null,timer=null,t0=0,blurAt=0,blurTimer=null;
+ function words(t){var m=String(t).trim().match(/[^\s]+/g);return m?m.length:0}
+ function en(){return c&&c.idioma==="en"}
+ function L(es,eng){return en()?eng:es}
+ function open(caso){if(el)return;c=caso;ans=(c.cuestionario||[]).map(function(){return ""});salidas=0;done=false;t0=Date.now();
+  el=document.createElement("div");el.className="quiz";el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-label",L("Cuestionario","Questionnaire"));
+  document.body.appendChild(el);document.body.classList.add("noscroll");paint();
+  var r=el.requestFullscreen?el.requestFullscreen():null;fs=!!r;
+  if(r&&r.catch)r.catch(function(){fs=false});
+  document.addEventListener("fullscreenchange",onFS);document.addEventListener("visibilitychange",onVis);window.addEventListener("blur",onBlur);window.addEventListener("focus",onFocus);window.addEventListener("beforeunload",onUnload);
+  var f=el.querySelector("textarea");if(f)f.focus()}
+ function head(){var s=sub(c.asignatura);return '<header class="qhead"><div class="qbrand">'+LENS+'<div><b>'+esc(L("Cuestionario","Questionnaire"))+' · '+esc(c.titulo)+'</b><small>'+esc(st.name)+' · '+esc(s.nombre)+'</small></div></div><div class="qprog" id="qprog"></div><button class="btn ghost qexit" data-q="exit">'+(done?L("Cerrar","Close"):L("Salir","Leave"))+'</button></header>'}
+ function paint(){var h=head();
+  if(!done){h+='<main class="qbody"><p class="qintro">'+esc(L("Responde a las "+ans.length+" preguntas con tus propias palabras. Cada respuesta debe tener al menos "+MIN_PALABRAS+" palabras. No se puede pegar texto. Si sales de la pantalla completa o cambias de pestaña, se borrarán tus respuestas.","Answer the "+ans.length+" questions in your own words. Each answer must have at least "+MIN_PALABRAS+" words. You can't paste text. If you leave full screen or change tab, your answers will be deleted."))+'</p>';
+   c.cuestionario.forEach(function(q,i){h+='<section class="qitem"><label for="qa'+i+'"><span class="qn">'+(i+1)+'</span><span>'+esc(q)+'</span></label><textarea id="qa'+i+'" data-i="'+i+'" rows="6" spellcheck="true" autocomplete="off" placeholder="'+esc(L("Escribe aquí tu respuesta…","Write your answer here…"))+'">'+esc(ans[i])+'</textarea><div class="qcount" id="qc'+i+'"></div></section>'});
+   h+='<div class="qsend"><p id="qmiss"></p><button class="btn red" data-q="send" id="qsendbtn">'+esc(L("Entregar cuestionario","Hand in"))+'</button></div></main>'}
+  else{h+='<main class="qbody qdone"><div class="verdict win" style="font-size:clamp(44px,8vw,80px)">'+esc(L("Cuestionario entregado","Questionnaire completed"))+'</div><p class="qintro">'+esc(L("¡Muy bien! Has respondido a todas las preguntas. Descarga el PDF con tus respuestas y entrégaselo a tu profesor.","Well done! You have answered all the questions. Download the PDF with your answers and give it to your teacher."))+'</p><p class="note">'+esc(L("Palabras escritas: ","Words written: "))+ans.reduce(function(a,t){return a+words(t)},0)+'</p><div class="acts"><button class="btn red" data-q="pdf">'+esc(L("Descargar respuestas (PDF)","Download answers (PDF)"))+'</button><button class="btn ghost" data-q="exit">'+esc(L("Cerrar","Close"))+'</button></div></main>'}
+  el.innerHTML=h;wire();upd()}
+ function wire(){
+  el.onclick=function(e){var b=e.target.closest("[data-q]");if(!b)return;var a=b.getAttribute("data-q");
+   if(a==="send")send();else if(a==="pdf")pdf(b);else if(a==="exit"){if(done)close();else warn("exit")}
+   else if(a==="back")back();else if(a==="wipe")wipe(L("Has salido del cuestionario. Tus respuestas se han borrado.","You left the questionnaire. Your answers have been deleted."))};
+  [].forEach.call(el.querySelectorAll("textarea"),function(t){
+   t.addEventListener("input",function(){ans[+t.getAttribute("data-i")]=t.value;upd()});
+   t.addEventListener("paste",function(e){e.preventDefault();toast(L("En el cuestionario no se puede pegar texto.","You can't paste text in the questionnaire."))});
+   t.addEventListener("drop",function(e){e.preventDefault()})})}
+ function upd(){if(done||!el)return;var ok=0;ans.forEach(function(t,i){var n=words(t),d=el.querySelector("#qc"+i);if(n>=MIN_PALABRAS)ok++;if(d){d.textContent=n+" "+L("palabras","words")+" · "+L("mínimo ","minimum ")+MIN_PALABRAS;d.className="qcount"+(n>=MIN_PALABRAS?" ok":"")}});
+  var p=el.querySelector("#qprog");if(p)p.innerHTML='<span>'+ok+'/'+ans.length+'</span><i style="width:'+(ok/ans.length*100)+'%"></i>';
+  var m=el.querySelector("#qmiss"),b=el.querySelector("#qsendbtn");if(b)b.disabled=ok<ans.length;
+  if(m)m.textContent=ok<ans.length?L("Te faltan "+(ans.length-ok)+" respuestas por completar (mínimo "+MIN_PALABRAS+" palabras cada una).","You still have "+(ans.length-ok)+" answers to complete (minimum "+MIN_PALABRAS+" words each)."):L("¡Todo listo! Ya puedes entregar el cuestionario.","All done! You can hand in the questionnaire now.")}
+ function send(){if(ans.some(function(t){return words(t)<MIN_PALABRAS}))return;done=true;clearWarn();paint();el.scrollTop=0}
+ function warn(kind){if(done||!el)return;clearWarn();var secs=kind==="fs"?20:0;
+  var msg=kind==="exit"?L("Si sales ahora, se borrarán todas tus respuestas y tendrás que empezar el cuestionario desde el principio.","If you leave now, all your answers will be deleted and you will have to start again."):
+   kind==="fs"?L("Has salido de la pantalla completa. Si no vuelves al cuestionario, se borrarán todas tus respuestas.","You left full screen. If you don't go back to the questionnaire, all your answers will be deleted."):
+   L("Has salido de la página del cuestionario. Esta es tu única advertencia: si vuelves a salir, se borrarán todas tus respuestas.","You left the questionnaire page. This is your only warning: if you leave again, all your answers will be deleted.");
+  warnEl=document.createElement("div");warnEl.className="qwarn";warnEl.setAttribute("role","alertdialog");
+  warnEl.innerHTML='<div class="dlg"><span class="eyebrow" style="color:var(--acc2)">'+esc(L("Atención","Warning"))+'</span><h3>'+esc(L("¡Cuidado!","Be careful!"))+'</h3><p>'+esc(msg)+'</p>'+(secs?'<p class="note" id="qcd"></p>':'')+'<div class="two"><button class="btn red" data-q="back">'+esc(L("Volver al cuestionario","Back to the questionnaire"))+'</button><button class="btn ghost" data-q="wipe">'+esc(L("Salir y borrar todo","Leave and delete"))+'</button></div></div>';
+  el.appendChild(warnEl);warnEl.querySelector("[data-q=back]").focus();
+  if(secs){var left=secs,cd=warnEl.querySelector("#qcd");var tick=function(){if(cd)cd.textContent=L("Se borrará en "+left+" segundos.","Deleting in "+left+" seconds.");if(left--<=0)wipe(L("No has vuelto a la pantalla completa. Tus respuestas se han borrado.","You didn't go back to full screen. Your answers have been deleted."))};tick();timer=setInterval(tick,1000)}}
+ function clearWarn(){if(timer)clearInterval(timer);timer=null;if(warnEl)warnEl.remove();warnEl=null}
+ function back(){clearWarn();if(fs&&!document.fullscreenElement&&el.requestFullscreen){var r=el.requestFullscreen();if(r&&r.catch)r.catch(function(){})}}
+ function onFS(){if(!el)return;if(!document.fullscreenElement&&fs&&!done)warn("fs")}
+ function left(){if(done||!el)return;salidas++;if(salidas>AVISOS_SALIDA)wipe(L("Has vuelto a salir de la página del cuestionario. Tus respuestas se han borrado.","You left the questionnaire page again. Your answers have been deleted."));else warn("leave")}
+ function onVis(){if(document.visibilityState==="hidden"){blurAt=0;if(blurTimer)clearTimeout(blurTimer);pendingLeave=true}else if(pendingLeave){pendingLeave=false;left()}}
+ var pendingLeave=false;
+ function onBlur(){if(done||!el)return;blurAt=Date.now();blurTimer=setTimeout(function(){if(blurAt&&!pendingLeave)pendingLeave=true},1500)}
+ function onFocus(){if(blurTimer)clearTimeout(blurTimer);blurAt=0;if(pendingLeave&&document.visibilityState==="visible"){pendingLeave=false;left()}}
+ function onUnload(e){if(el&&!done){e.preventDefault();e.returnValue="";return ""}}
+ function wipe(msg){ans=ans.map(function(){return ""});close();toast(msg)}
+ function close(){clearWarn();document.removeEventListener("fullscreenchange",onFS);document.removeEventListener("visibilitychange",onVis);window.removeEventListener("blur",onBlur);window.removeEventListener("focus",onFocus);window.removeEventListener("beforeunload",onUnload);
+  pendingLeave=false;if(document.fullscreenElement&&document.exitFullscreen){var r=document.exitFullscreen();if(r&&r.catch)r.catch(function(){})}
+  if(el)el.remove();el=null;document.body.classList.remove("noscroll")}
+ function pdf(btn){if(!window.jspdf){toast(L("No se ha podido cargar el generador de PDF. Comprueba la conexión a internet.","The PDF generator could not be loaded. Check your internet connection."));return}
+  btn.disabled=true;var s=sub(c.asignatura),col=rgb(s.color);
+  toPNG(LOGO,300,300,true).then(function(logo){
+   var J=new window.jspdf.jsPDF({unit:"mm",format:"a4"}),W=210,M=18,y;
+   function head(){J.setFillColor(12,12,14);J.rect(0,0,W,24,"F");if(logo)J.addImage(logo,"PNG",M-1,3.5,17,17);J.setTextColor(255);J.setFont("helvetica","bold");J.setFontSize(15);J.text("PROYECTO SHERLOCK",M+20,12.5);J.setFont("helvetica","normal");J.setFontSize(8);J.setTextColor(200);J.text(clean(L("LEE, RAZONA Y RESUELVE EL MISTERIO  ·  Cuestionario final","READ, THINK AND SOLVE THE MYSTERY  ·  Final questionnaire")),M+20,18);J.setFillColor(col[0],col[1],col[2]);J.rect(0,24,W,1.6,"F")}
+   function need(h){if(y+h>282){J.addPage();head();y=36}}
+   head();y=36;
+   J.setTextColor(110);J.setFont("helvetica","bold");J.setFontSize(9);J.text(clean(s.nombre.toUpperCase()+"  ·  "+c.epoca.toUpperCase()),M,y);y+=8;
+   J.setTextColor(20);J.setFontSize(20);var tl=J.splitTextToSize(clean(c.titulo),W-2*M);J.text(tl,M,y);y+=tl.length*8+2;
+   var d=new Date(),mins=Math.max(1,Math.round((Date.now()-t0)/60000)),tot=ans.reduce(function(a,t){return a+words(t)},0);
+   J.setFillColor(246,242,233);J.roundedRect(M,y,W-2*M,22,2,2,"F");J.setFontSize(8.5);J.setTextColor(110);J.text(L("ALUMNO/A","STUDENT"),M+5,y+7);J.text(L("FECHA","DATE"),M+95,y+7);
+   J.setFont("helvetica","bold");J.setFontSize(12);J.setTextColor(20);J.text(clean(st.name),M+5,y+14);J.setFont("helvetica","normal");J.setFontSize(10);J.text(d.toLocaleDateString("es-ES")+"  "+d.toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"}),M+95,y+14);
+   J.setFontSize(8.5);J.setTextColor(90);J.text(clean(L("Palabras: "+tot+"  ·  Tiempo: "+mins+" min  ·  Salidas de la página registradas: "+salidas,"Words: "+tot+"  ·  Time: "+mins+" min  ·  Times the student left the page: "+salidas)),M+5,y+19.5);y+=32;
+   c.cuestionario.forEach(function(q,i){need(20);J.setFont("helvetica","bold");J.setFontSize(11);J.setTextColor(Math.round(col[0]*.55),Math.round(col[1]*.55),Math.round(col[2]*.55));
+    var ql=J.splitTextToSize(clean((i+1)+". "+q),W-2*M);ql.forEach(function(l){need(6);J.text(l,M,y);y+=5.4});y+=1.5;
+    J.setFont("helvetica","normal");J.setFontSize(10.5);J.setTextColor(33,29,24);
+    String(ans[i]).split(/\n+/).forEach(function(par){J.splitTextToSize(clean(par.trim()),W-2*M-4).forEach(function(l){need(5.4);J.text(l,M+4,y);y+=5.2});y+=1.5});
+    J.setFontSize(8);J.setTextColor(140);need(5);J.text(words(ans[i])+" "+L("palabras","words"),W-M,y,{align:"right"});y+=7});
+   var n=J.getNumberOfPages();for(var k=1;k<=n;k++){J.setPage(k);J.setFontSize(8);J.setTextColor(140);J.setFont("helvetica","normal");J.text(clean("Proyecto Sherlock · "+c.titulo+" · "+st.name+" · "+L("página ","page ")+k+" / "+n),W/2,290,{align:"center"})}
+   J.save(("sherlock-cuestionario-"+c.id+"-"+st.name).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-")+".pdf");
+   btn.disabled=false;toast(L("Respuestas descargadas","Answers downloaded"))}).catch(function(){btn.disabled=false;toast(L("No se ha podido crear el PDF.","The PDF could not be created."))})}
+ return {open:open}
+})();
+
+window.addEventListener("resize",function(){if(D)updArrows()});
 /* ---------- arranque ---------- */
 function fallo(){app.innerHTML='<div class="wrap"><div class="notice">'+LENS.replace('class="lens"','class="lens" style="width:48px;height:48px;color:var(--acc)"')+'<h1>No se han podido cargar los casos</h1><p>Proyecto Sherlock lee los casos del archivo <code>data/casos.json</code>. Por seguridad, los navegadores no dejan leer ese archivo si abres <code>index.html</code> con doble clic.</p><p>Súbelo a GitHub Pages o a la web de tu centro, o ábrelo con un servidor local (por ejemplo, la extensión Live Server de Visual Studio Code). Después entra desde la dirección <code>http://…</code></p></div></div>'}
 fetch("data/casos.json",{cache:"no-cache"}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(json){D=json;buildFeat();if(st.name)st.screen="home";render()}).catch(fallo);
