@@ -5,12 +5,13 @@ ESTRUCTURA
   index.html            Página principal
   css/estilos.css       Aspecto visual (colores, tipografías, tamaños)
   js/app.js             Funcionamiento (carrusel, pantalla de carga, juego, PDF)
-  data/casos.json       Todos los textos de las asignaturas y de los 24 casos
-  img/general/logotipo.jpg   Logotipo (portada, barra superior, ayuda, pantalla de carga y PDF)
+  data/casos.json       Todos los textos de las asignaturas y de los 48 casos (6 por asignatura)
+  img/general/logotipo.png   Logotipo (favicon, portada, barra superior, ayuda y PDF)
   img/<asignatura>/asignatura.svg            Imagen de la tarjeta de la asignatura
   img/<asignatura>/<caso>/portada.svg        Carátula del caso
   img/<asignatura>/<caso>/escena.svg         Imagen grande de la introducción
-  img/<asignatura>/<caso>/sospechoso-1.svg   ... sospechoso-6.svg (en el mismo orden que en casos.json)
+  img/<asignatura>/<caso>/sospechoso-1.svg   ... sospechoso-6.svg (en el mismo orden que en casos.json).
+                        Cada retrato tiene un fondo relacionado con la historia del personaje.
 
 CÓMO CAMBIAR UNA IMAGEN
   1. Pon tu imagen en la carpeta del caso (por ejemplo, img/plastica/espejo-meninas/).
@@ -26,8 +27,9 @@ CÓMO CAMBIAR UNA IMAGEN
 CÓMO CAMBIAR TEXTOS O AÑADIR CASOS
   Todo está en data/casos.json. Cada caso tiene: titulo, epoca, resumen, mision,
   introduccion (párrafos), sospechosos (nombre, descripcion, imagen, ficha),
-  respuesta (número del 1 al 6: el sospechoso correcto), pistas, final, saber_mas y pregunta
-  (la pregunta que aparece en el certificado PDF).
+  respuesta (número del 1 al 6: el sospechoso correcto), pistas, final, saber_mas, pregunta
+  (la pregunta que aparece en el certificado PDF) y cuestionario (las 10 preguntas de desarrollo
+  del cuestionario final; puedes cambiarlas, quitar o añadir las que quieras).
   Para añadir un caso, copia uno entero, cambia el "id" (sin espacios ni tildes) y crea su carpeta de imágenes.
   Si editas el JSON, revisa que no falten comas ni comillas (puedes comprobarlo en jsonlint.com).
 
@@ -42,4 +44,16 @@ CÓMO PUBLICARLO
 AJUSTES RÁPIDOS (al principio de js/app.js)
   HERO_SEGUNDOS  segundos entre un caso destacado y el siguiente (7)
   CARGA_MS       duración de la pantalla de carga en milisegundos (3600)
-  LOGO           ruta del logotipo (img/general/logotipo.jpg)
+  LOGO           ruta del logotipo (img/general/logotipo.png)
+  MIN_PALABRAS   palabras mínimas de cada respuesta del cuestionario (50)
+  AVISOS_SALIDA  avisos antes de borrar el cuestionario si el alumno cambia de pestaña (1)
+
+CUESTIONARIO FINAL
+  Al resolver un caso aparece el botón «Hacer el cuestionario». Se abre en pantalla completa.
+  - Las 10 preguntas de cada caso están en data/casos.json (campo "cuestionario"); puedes editarlas.
+  - No se puede pegar texto en las respuestas.
+  - Si el alumno sale de la pantalla completa, tiene 20 segundos para volver o se borra todo.
+  - Si cambia de pestaña o de ventana, recibe un aviso; si lo vuelve a hacer, se borra todo.
+  - No se puede entregar hasta que todas las respuestas tienen el mínimo de palabras.
+  - El PDF final incluye preguntas, respuestas, número de palabras, tiempo empleado y
+    las veces que el alumno salió de la página.
