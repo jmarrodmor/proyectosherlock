@@ -76,42 +76,46 @@
   ],
   "casos": [
     {
-      "id": "tablilla-vesubio",
+      "id": "superviviente-vesubio",
       "asignatura": "gh",
       "idioma": "es",
-      "titulo": "La tablilla del Vesubio",
+      "titulo": "El superviviente del Vesubio",
       "epoca": "Pompeya, año 79",
-      "resumen": "Bajo la ceniza aparece una tablilla de cera que avisaba de la erupción. ¿Quién de los seis vecinos la escribió?",
-      "mision": "Descubre quién escribió el aviso de la tablilla.",
-      "confirmacion": "¿Seguro que esta persona escribió la tablilla?",
-      "nombre_sospechosos": "sospechosos",
-      "portada": "img/geografia-historia/tablilla-vesubio/portada.svg",
-      "escena": "img/geografia-historia/tablilla-vesubio/escena.svg",
+      "resumen": "Seis vecinos de Pompeya cuidaban juntos el altar de su calle. Cuando el Vesubio despertó, solo uno salvó la vida. ¿Quién fue?",
+      "mision": "Descubre cuál de los seis vecinos sobrevivió a la erupción.",
+      "confirmacion": "¿Seguro que esta persona sobrevivió?",
+      "nombre_sospechosos": "vecinos",
+      "portada": "img/geografia-historia/superviviente-vesubio/portada.svg",
+      "escena": "img/geografia-historia/superviviente-vesubio/escena.svg",
       "introduccion": [
-        "Pompeya, abril de 2026. Son las siete de la mañana y el sol todavía no calienta las piedras de la Vía de la Abundancia. La arqueóloga Irene Valcárcel lleva once años excavando en la ciudad que el Vesubio enterró hace casi dos mil años, pero esa mañana tiene la sensación de que va a pasar algo especial. Su equipo trabaja en una casa de la Regio V, uno de los barrios que todavía siguen bajo metros de ceniza y piedra pómez. Cada cubo de tierra se tamiza con cuidado, porque en Pompeya cualquier grano puede esconder una historia.",
-        "A media mañana, Matteo, el estudiante más joven del equipo, levanta la mano y se queda inmóvil. Junto a los restos de una cama de madera carbonizada, en una habitación pequeña que probablemente fue un dormitorio de servicio, ha aparecido un objeto rectangular. Irene se arrodilla a su lado y aparta la ceniza con un pincel. Es una tablilla de cera: dos tablas de madera unidas por una bisagra, como un cuaderno de dos hojas. Los romanos rellenaban su interior con cera y escribían en ella rayándola con un punzón de metal llamado estilo. Luego podían alisar la cera y volver a escribir. Casi nunca se conservan, porque la madera se pudre. Esta se ha salvado porque la ceniza la selló como una caja fuerte.",
-        "Durante semanas, los restauradores trabajan en el laboratorio con luces especiales que hacen visibles los surcos de la cera. Poco a poco aparece el mensaje, corto y urgente: «Marchaos de la ciudad mientras podáis. La montaña está despierta y nadie quiere verlo». Irene lo lee en voz alta y se le pone la piel de gallina. Quien escribió esas palabras se dio cuenta del peligro varios días antes de la erupción, cuando el resto de los pompeyanos seguía con su vida normal: el pan en los hornos, los gladiadores entrenando junto al anfiteatro, las tiendas abiertas y los vecinos discutiendo en las fuentes.",
-        "La tablilla no está firmada. Pero Pompeya es una ciudad que habla: sus paredes están llenas de grafitis, anuncios electorales, cuentas de las tiendas y hasta insultos entre vecinos. Cruzando esos textos con los registros de la casa, el equipo ha reducido la lista a seis personas que vivían o trabajaban en ese barrio en el verano del año 79. Irene ha preparado una ficha de cada una y ha ido anotando, una a una, todas las pistas que ha encontrado en la propia tablilla.",
-        "Ahora te toca a ti. Lee las fichas con calma, lee cada pista como si fueras parte del equipo y descubre quién vio el peligro antes que nadie."
+        "El 24 de agosto del año 79 d. C., Pompeya despertó como cualquier otro día. Los panaderos sacaban el pan de los hornos, los comerciantes abrían sus tiendas y los niños corrían por las calles empedradas. Nadie sospechaba que, antes de que terminara el día, el cielo se les iba a venir encima. Hacia la una de la tarde, un estruendo ensordecedor hizo temblar el suelo. El monte Vesubio, la montaña verde que se veía desde cualquier rincón de la ciudad, explotó con una fuerza descomunal y lanzó hacia el cielo una columna de gas, ceniza y rocas de más de 30 kilómetros de altura. Un joven que lo vio desde el otro lado de la bahía, Plinio el Joven, escribió que la nube tenía la forma de un pino gigantesco: un tronco altísimo que arriba se abría en ramas. Hoy diríamos que parecía el hongo de una explosión nuclear. La nube tapó el sol y, en pleno día, toda la región quedó a oscuras.",
+        "Entonces empezó a llover piedra. Durante horas cayeron sin parar trozos de piedra pómez, una roca volcánica muy ligera y llena de agujeritos, como una esponja de piedra. No solía matar de un golpe, pero se iba acumulando: en las calles y sobre los tejados llegó a formar una capa de casi tres metros. Con su peso, los techos de las casas empezaron a hundirse. Asustados por la oscuridad y por los rugidos de la montaña, miles de pompeyanos salieron a la calle con lo poco que podían cargar. Unos huyeron por los caminos del interior. Otros corrieron hacia el mar con la esperanza de subir a un barco. Y otros decidieron quedarse en casa, cerrar bien las puertas y esperar a que pasara la tormenta. Aquella decisión, tomada a toda prisa y en medio del pánico, iba a separar a los que vivirían de los que no.",
+        "Para entender todo lo que se perdió aquel día, hay que imaginar cómo era Pompeya antes del desastre. Era una ciudad de unos diez mil habitantes, rica, ruidosa y llena de vida, situada en un lugar privilegiado junto a la bahía de Nápoles. Gracias a su clima soleado y a su cercanía al mar, atraía a comerciantes de todas partes y a romanos ricos que construían allí sus casas de vacaciones. Sus vecinos vendían productos muy apreciados en todo el Imperio: aceite de oliva, vino de los viñedos del Vesubio y, sobre todo, garum. Esta salsa de pescado fermentado era el condimento estrella de la cocina romana. Olía fortísimo, daba a las comidas un sabor muy intenso e hizo ricos a muchos comerciantes de la ciudad.",
+        "El centro de la vida pública era el Foro, una gran plaza rodeada de templos y edificios donde se hablaba de política, se cerraban negocios y se comentaban los cotilleos del día. Para divertirse, los pompeyanos llenaban el anfiteatro y gritaban de emoción con los combates de gladiadores. También iban a las termas, unos baños públicos que funcionaban como un auténtico spa: allí la gente se lavaba, hacía deporte y quedaba con los amigos. Y si a mediodía entraba hambre, no hacía falta volver a casa. Las calles estaban llenas de thermopolia, los puestos de comida rápida de la época. Tenían mostradores de piedra con grandes tinajas encastradas, donde se servían platos calientes y bebidas para tomar de pie, como en un local de comida rápida de hoy.",
+        "Lo más sobrecogedor de esta historia es que el desastre llegó con aviso, aunque nadie supo entenderlo. Los romanos no sabían que el Vesubio era un volcán. Para ellos era una montaña tranquila, verde y fértil, cubierta de viñedos, que llevaba siglos en silencio. De hecho, la palabra «volcán» ni siquiera existía en latín: se creó muchos siglos después a partir del nombre de Vulcano, el dios romano del fuego. Sin embargo, bajo tierra el magma llevaba tiempo abriéndose paso hacia la superficie. Diecisiete años antes, en el año 62, un fuerte terremoto había derribado edificios y templos, y en el año 79 muchas casas seguían todavía en obras. En los días previos a la erupción, la tierra volvió a temblar cada vez con más frecuencia y se oyeron ruidos bajo el suelo, como rugidos lejanos. Algunos relatos cuentan también que el agua de pozos y fuentes empezó a comportarse de forma extraña.",
+        "Pero los pequeños terremotos eran habituales en la bahía de Nápoles y casi nadie les dio importancia. Nadie hizo las maletas ni buscó refugio. La gente siguió con su vida de siempre: comprar en el mercado, ir a los baños, hacer negocios. No sabían que estaban viviendo sus últimas horas de tranquilidad.",
+        "Al caer la noche, la pesadilla se convirtió en un infierno. La gigantesca columna de ceniza ya no pudo sostener su propio peso y se derrumbó sobre sí misma. A menudo se piensa que el Vesubio destruyó la ciudad con ríos de lava lentos, como los de las películas, de los que se podría escapar caminando. La realidad fue mucho más rápida y mortífera: los flujos piroclásticos. Eran avalanchas de gas ardiente, ceniza y rocas que bajaban por las laderas del volcán a más de 100 kilómetros por hora y a una temperatura de cientos de grados. Hacia la una de la madrugada arrasaron Herculano, donde cientos de personas esperaban en la playa unos barcos que nunca llegaron. Al amanecer del 25 de agosto alcanzaron las murallas de Pompeya. Quienes seguían en la ciudad murieron en cuestión de segundos, sin tiempo para reaccionar. Los edificios, en cambio, quedaron en pie bajo la ceniza, y por eso hoy podemos pasear por sus calles. Ni siquiera la gente importante se salvó: Plinio el Viejo, almirante de la flota romana y uno de los sabios más famosos de su época, cruzó la bahía con sus barcos para rescatar a los habitantes de la costa y murió en una playa cercana.",
+        "Casi dos mil años después, los arqueólogos que excavan la Vía de la Abundancia han encontrado, pintada en la pared de un thermopolium, una lista con seis nombres. Son los seis vecinos que aquel verano se encargaban de cuidar el pequeño altar del barrio, en el cruce de la calle. Además, en Neápolis, la actual Nápoles, apareció hace tiempo una lápida rota. En ella, un antiguo vecino de Pompeya da gracias a los dioses por haberlo salvado «del fuego de la montaña» y recuerda a sus cinco compañeros del altar, que se quedaron para siempre bajo la ceniza. Por desgracia, la piedra está partida justo donde estaban los nombres. Sabemos que uno de los seis sobrevivió, pero no sabemos cuál.",
+        "Ahora te toca a ti. Lee con atención las fichas de los seis vecinos: a qué se dedicaban, cómo era su día a día y dónde vivían. Después estudia las pistas, que reconstruyen lo que hizo cada uno durante las últimas horas de Pompeya. Recuerda todo lo que acabas de leer sobre la piedra pómez, los barcos y las nubes ardientes, porque te hará falta para descubrir quién sobrevivió."
       ],
       "sospechosos": [
         {
           "nombre": "Aulo Pacuvio",
           "corto": "Aulo",
           "descripcion": "Panadero de la Vía de la Abundancia",
-          "imagen": "img/geografia-historia/tablilla-vesubio/sospechoso-1.svg",
+          "imagen": "img/geografia-historia/superviviente-vesubio/sospechoso-1.svg",
           "ficha": [
             {
               "titulo": "Origen",
-              "texto": "Nació en Alejandría, en Egipto. Habla griego desde niño y aprendió latín para los negocios."
+              "texto": "Nació en Alejandría, en Egipto, y llegó a Pompeya de joven para trabajar en un horno. Hoy ese horno es suyo."
             },
             {
-              "titulo": "Vida en Pompeya",
-              "texto": "Llegó a Pompeya en el año 69 con su mujer y sus dos hijos, y compró un horno con molinos de piedra que mueven dos burros."
+              "titulo": "Su día a día",
+              "texto": "Se levanta antes del amanecer para moler el trigo en sus molinos de piedra, que mueven dos burros, y hornear el pan. A mediodía ya ha vendido casi todo."
             },
             {
               "titulo": "Otros datos",
-              "texto": "Se levanta antes del amanecer para hornear. Sus panes redondos, cortados en ocho porciones, son famosos en todo el barrio."
+              "texto": "Vive en el piso de arriba del horno con su mujer y sus dos hijos pequeños. Presume de que su casa es la más fuerte del barrio, porque la reconstruyó con muros nuevos después del terremoto del año 62."
             }
           ]
         },
@@ -119,19 +123,19 @@
           "nombre": "Cornelia Rufa",
           "corto": "Cornelia",
           "descripcion": "Comerciante de garum",
-          "imagen": "img/geografia-historia/tablilla-vesubio/sospechoso-2.svg",
+          "imagen": "img/geografia-historia/superviviente-vesubio/sospechoso-2.svg",
           "ficha": [
             {
               "titulo": "Origen",
               "texto": "Nacida en Pompeya hace 45 años, hija de un fabricante de salsas de pescado."
             },
             {
-              "titulo": "Negocio",
-              "texto": "Vende garum, la salsa de pescado fermentado que los romanos echaban a casi todo. Compra el mejor en Hispania."
+              "titulo": "Su día a día",
+              "texto": "Tiene una fábrica de garum cerca del puerto, junto a la desembocadura del río Sarno. Cada tarde baja a los muelles a vigilar cómo cargan sus ánforas en los barcos."
             },
             {
               "titulo": "Otros datos",
-              "texto": "En marzo del año 79 se embarcó hacia Carthago Nova, en Hispania, para cerrar un gran contrato. Escribió a su familia diciendo que no volvería hasta el otoño."
+              "texto": "Es dueña de un pequeño barco mercante. Nunca se quita un anillo de oro con un delfín grabado, que usa como sello para cerrar sus ánforas y sus cartas."
             }
           ]
         },
@@ -139,129 +143,131 @@
           "nombre": "Gneo Atilio",
           "corto": "Gneo",
           "descripcion": "Gladiador retirado",
-          "imagen": "img/geografia-historia/tablilla-vesubio/sospechoso-3.svg",
+          "imagen": "img/geografia-historia/superviviente-vesubio/sospechoso-3.svg",
           "ficha": [
             {
               "titulo": "Origen",
-              "texto": "Nació en una aldea samnita de los montes de Campania."
+              "texto": "Nació hace 49 años en una aldea samnita de los montes de Campania. Luchó durante doce años en el anfiteatro de Pompeya."
             },
             {
-              "titulo": "Trayectoria",
-              "texto": "Luchó durante doce años en el anfiteatro de Pompeya, el más antiguo que se conserva. Vive en la ciudad desde el año 60 y ahora entrena a gladiadores jóvenes."
+              "titulo": "Su día a día",
+              "texto": "Cada mañana entrena a los gladiadores jóvenes en el cuartel que hay junto al teatro. Vive allí mismo, en una pequeña habitación del cuartel."
             },
             {
               "titulo": "Otros datos",
-              "texto": "Habla latín y la lengua osca de sus abuelos, pero nunca aprendió griego. Sabe leer y escribir porque quería entender los carteles que anunciaban sus combates."
+              "texto": "Cojea de la pierna izquierda desde que se la rompieron en su último combate. Es muy orgulloso: repite que en doce años jamás huyó de una pelea."
             }
           ]
         },
         {
-          "nombre": "Elpis",
-          "corto": "Elpis",
-          "descripcion": "Esclava doméstica e institutriz",
-          "imagen": "img/geografia-historia/tablilla-vesubio/sospechoso-4.svg",
+          "nombre": "Julia Prima",
+          "corto": "Julia",
+          "descripcion": "Médica",
+          "imagen": "img/geografia-historia/superviviente-vesubio/sospechoso-4.svg",
           "ficha": [
             {
               "titulo": "Origen",
-              "texto": "Nació en Corinto, en Grecia. Fue vendida como esclava y llegó a Pompeya en el año 54, cuando tenía ocho años."
+              "texto": "Nacida en Pompeya hace 38 años. Aprendió medicina con su padre, un médico griego, y heredó su caja de instrumentos de bronce."
             },
             {
-              "titulo": "Trabajo",
-              "texto": "Sirve en una casa rica del barrio. Enseña a leer y escribir en griego y en latín a los hijos de sus dueños."
+              "titulo": "Su día a día",
+              "texto": "Por las mañanas atiende a los enfermos en su casa, cerca del Foro. Por las tardes va a pie de casa en casa a visitar a los que no pueden levantarse. Algunas semanas sube andando a las laderas del Vesubio para recoger plantas medicinales."
             },
             {
               "titulo": "Otros datos",
-              "texto": "Pasa las tardes en el jardín de la casa con los niños, observando los pájaros y anotando en tablillas lo que ven."
+              "texto": "Prometió a su padre que nunca abandonaría a un enfermo ni a un herido, pasara lo que pasara."
             }
           ]
         },
         {
-          "nombre": "Marco Septimio",
-          "corto": "Marco",
-          "descripcion": "Augur, sacerdote",
-          "imagen": "img/geografia-historia/tablilla-vesubio/sospechoso-5.svg",
+          "nombre": "Lucio Vibio",
+          "corto": "Lucio",
+          "descripcion": "Arriero",
+          "imagen": "img/geografia-historia/superviviente-vesubio/sospechoso-5.svg",
           "ficha": [
             {
               "titulo": "Origen",
-              "texto": "Nacido en Pompeya, de una familia antigua y respetada. Tiene 61 años."
+              "texto": "Nació en Nuceria, una ciudad del interior a unos 15 kilómetros de Pompeya. Se casó con una pompeyana y vive en la ciudad desde hace veinte años."
             },
             {
-              "titulo": "Trabajo",
-              "texto": "Los augures interpretaban la voluntad de los dioses observando el vuelo de las aves. Él fue uno de los más consultados de la ciudad."
+              "titulo": "Su día a día",
+              "texto": "Con su carro y sus cuatro mulas, sube cada mañana por los caminos del Vesubio para recoger las ánforas de vino de las granjas de la ladera. Después las lleva a vender a Nuceria por el camino del interior."
             },
             {
               "titulo": "Otros datos",
-              "texto": "Perdió la vista por completo hace seis años por una enfermedad de los ojos. Habla y escribe griego con soltura, pero desde que se quedó ciego dicta sus cartas a un secretario."
+              "texto": "Vive con su mujer y su hija en una casa junto a la puerta de Nuceria, donde también guarda el carro. Conoce cada fuente y cada atajo de la montaña."
             }
           ]
         },
         {
-          "nombre": "Décimo Lolio",
-          "corto": "Décimo",
-          "descripcion": "Encargado del agua del barrio",
-          "imagen": "img/geografia-historia/tablilla-vesubio/sospechoso-6.svg",
+          "nombre": "Quinto Marcio Félix",
+          "corto": "Quinto",
+          "descripcion": "Banquero y prestamista",
+          "imagen": "img/geografia-historia/superviviente-vesubio/sospechoso-6.svg",
           "ficha": [
             {
               "titulo": "Origen",
-              "texto": "Nacido en Neápolis (la actual Nápoles), una ciudad fundada por griegos, así que el griego es su primera lengua."
+              "texto": "Nacido en Pompeya hace 63 años, en una familia de antiguos esclavos que se hizo rica con el comercio."
             },
             {
-              "titulo": "Trabajo",
-              "texto": "Revisa las tuberías de plomo y las fuentes que reciben el agua del castellum aquae, la torre que reparte el agua del acueducto por la ciudad."
+              "titulo": "Su día a día",
+              "texto": "Presta dinero a medio barrio y apunta todas las deudas en tablillas de cera. Pasa el día en su oficina, junto al Foro, con la puerta cerrada."
             },
             {
               "titulo": "Otros datos",
-              "texto": "Es sordo de nacimiento. Se comunica por gestos y por escrito, y lleva siempre una tablilla colgada del cinturón."
+              "texto": "Guarda sus monedas en un arca de hierro y lleva siempre la llave colgada del cuello con un cordón de cuero. Dice que no se fía de nadie para vigilar su dinero."
             }
           ]
         }
       ],
-      "respuesta": 4,
+      "respuesta": 5,
       "pistas": [
         {
-          "titulo": "La lengua de la tablilla",
-          "fuente": "Informe del laboratorio de epigrafía",
-          "texto": "Lo primero que hacen los restauradores al recibir la tablilla es comprobar en qué lengua está escrita. Matteo, que ha estudiado latín en el instituto, se lleva una sorpresa: no reconoce las letras. No son latinas. Irene sonríe y le explica que el mensaje está escrito en griego. En la Campania del siglo I, eso no tenía nada de raro. Siglos antes, colonos griegos habían fundado ciudades por toda la costa, como Neápolis, la actual Nápoles. En Pompeya convivían el latín de los romanos, el griego de los comerciantes y de muchas familias, y la vieja lengua osca de los pueblos de las montañas. La epigrafista del equipo, la persona especializada en leer inscripciones antiguas, estudia la tablilla durante dos días. Su conclusión es clara: el autor escribía griego con una letra rápida y segura, como quien lo hace a diario, usa palabras poco frecuentes y no comete ni un solo error. «Quien escribió esto no estaba copiando un texto ajeno», dice. «Pensaba en griego». Así que cualquiera que no supiera escribir en esa lengua queda descartado."
+          "titulo": "Barcos que no llegaron",
+          "fuente": "Cartas de Plinio el Joven y excavación de la antigua orilla",
+          "texto": "Sabemos bien lo que pasó en el mar aquel 24 de agosto gracias a dos cartas que Plinio el Joven escribió años después al historiador Tácito. En ellas cuenta que su tío, Plinio el Viejo, salió con sus barcos desde Miseno para rescatar a la gente de la costa. Pero no consiguió acercarse a la orilla que había al pie de la montaña: las piedras caían sobre las cubiertas, el mar se había vuelto poco profundo de repente y las rocas que bajaban del volcán cerraban el paso. Tuvo que desviarse hacia Estabia y allí, con el viento en contra, ya no pudo volver a salir al mar. Ningún barco podía rescatar a quienes esperaban en la playa. Hace unos años, un equipo de arqueólogos excavó la antigua orilla del mar cerca de la desembocadura del río Sarno, que en el año 79 estaba mucho más cerca de Pompeya que hoy. Entre ánforas de garum rotas aparecieron los restos de un grupo de personas que habían esperado un barco que nunca llegó. Una de ellas llevaba en el dedo un anillo de oro con un delfín grabado."
         },
         {
-          "titulo": "Un recuerdo de hace diecisiete años",
-          "fuente": "Segunda cara de la tablilla",
-          "texto": "En la otra cara de la tablilla, los restauradores descubren un segundo texto, más largo y con la letra más apretada, como si el autor hubiera querido explicar por qué tenía tanto miedo. Irene lo traduce despacio en la mesa del laboratorio, con todo el equipo alrededor: «Yo estaba aquí cuando la tierra tembló hace diecisiete años y vi caer las columnas del templo de Júpiter. Ahora siento los mismos temblores pequeños que hubo antes de aquel día». Matteo coge una libreta y hace la cuenta. Si la tablilla se escribió en el año 79, diecisiete años antes es el año 62. Los historiadores conocen muy bien ese terremoto, porque lo cuenta el filósofo Séneca: dañó gravemente Pompeya y derribó muchos edificios. Diecisiete años después, cuando llegó la erupción, buena parte de la ciudad seguía todavía en obras, con andamios y montones de ladrillos en las calles. El autor de la tablilla, por tanto, ya vivía en Pompeya en el año 62 y vio aquel terremoto con sus propios ojos. Compara con calma las fechas de llegada que aparecen en las fichas."
+          "titulo": "Una casa demasiado fuerte",
+          "fuente": "Excavación de una panadería de la Vía de la Abundancia",
+          "texto": "En la Vía de la Abundancia, el equipo excava una panadería. En la sala de los molinos aparecen los esqueletos de dos burros, todavía atados a las piedras de moler, como si nadie hubiera tenido tiempo de soltarlos. El horno está cerrado y dentro hay decenas de panes redondos convertidos en carbón. Pero lo más triste está en el piso de arriba, donde vivía la familia. Allí, debajo de las vigas del techo hundido y de una capa de piedra pómez de más de dos metros, aparecen los restos de dos adultos y dos niños. La antropóloga del equipo explica que no los mató el calor de las nubes ardientes: murieron aplastados cuando el techo cedió bajo el peso de las piedras, durante la noche del 24. Seguramente pensaron que dentro de casa estarían a salvo y se quedaron esperando a que pasara la lluvia de piedras. Fue el mismo error que cometieron muchos pompeyanos. Un muro nuevo podía aguantar un terremoto, pero un tejado no podía soportar tres metros de piedras."
         },
         {
-          "titulo": "Un verano raro",
-          "fuente": "Tablilla, primera cara (continuación)",
-          "texto": "La primera cara de la tablilla todavía guarda más secretos. Debajo del aviso, con letra pequeña, el autor escribió una lista. Irene la lee en voz alta mientras Matteo la apunta en la pizarra: los pozos del barrio bajan de nivel cada semana; el agua de algunas fuentes sabe a huevo podrido, que es el olor del azufre; los perros aúllan de noche sin motivo y los gatos han desaparecido de los tejados. Al final de la lista hay una frase importante: «Todo esto lo he visto yo mismo durante todo este verano, día tras día, sin moverme de mi barrio». La vulcanóloga del equipo, que estudia los volcanes, asiente con la cabeza. Hoy sabemos que, antes de una erupción, el magma que sube hacia la superficie puede calentar el agua del subsuelo, mezclarla con gases y alterar los pozos, y que muchos animales notan pequeños temblores que las personas no perciben. Para la investigación, la frase final es la clave: el autor pasó el verano del año 79 en Pompeya. Alguien que estuviera de viaje esos meses, lejos de la ciudad, no pudo escribir la lista."
+          "titulo": "Los huesos hablan",
+          "fuente": "Informe de la antropóloga sobre el cuartel de los gladiadores",
+          "texto": "En el cuartel de los gladiadores, un gran patio rodeado de columnas junto al teatro, los primeros excavadores encontraron hace más de doscientos años cascos, espadas y restos de varias personas. Ahora la antropóloga del equipo vuelve a estudiar esos huesos en el laboratorio. Los huesos guardan la historia de una vida: pueden decir qué edad tenía alguien, si hacía trabajos duros o si sufrió heridas graves. Uno de los esqueletos le llama la atención. Es el de un hombre de unos cincuenta años, con los brazos muy fuertes de quien se ha pasado la vida luchando, y con la pierna izquierda rota muchos años antes y curada torcida. «Este hombre cojeaba», explica la antropóloga. «Seguramente no podía correr». A su alrededor había varios jóvenes. Parece que se quedaron todos juntos en el cuartel, refugiados bajo los pórticos, hasta que al amanecer del 25 llegó la nube ardiente."
         },
         {
-          "titulo": "Lo que se ve",
-          "fuente": "Tablilla, primera cara (final)",
-          "texto": "Los restauradores consiguen leer el final de la primera cara, que estaba tapado por una mancha de ceniza endurecida. Es una descripción tan precisa que parece una foto: «Las aguas del puerto tienen un brillo amarillento. En la ladera de la montaña se ven manchas de hierba seca que ayer estaban verdes. Esta mañana he contado once pájaros muertos en el jardín, debajo del limonero». Irene se queda un rato en silencio. Quien escribió esto no se limitaba a repetir rumores del mercado: miraba con atención, comparaba colores de un día para otro y contaba lo que veía. Además, la especialista en escritura antigua confirma otro detalle. La presión del estilo sobre la cera es igual en todo el texto, las letras tienen siempre la misma inclinación y no hay correcciones de otra mano. Es decir, lo escribió una sola persona, con su propia mano, sin dictárselo a nadie. Esta pista es importante para revisar las fichas: quien no pudiera ver no habría podido fijarse en esos colores ni trazar personalmente las letras."
+          "titulo": "Demasiado tarde",
+          "fuente": "Excavación de un huerto junto a la puerta de Nuceria",
+          "texto": "Al amanecer del 25 de agosto, la lluvia de piedra pómez se calmó un poco. Muchos de los que se habían escondido en sus casas aprovecharon ese momento para salir e intentar huir por fin de la ciudad. Uno de esos grupos apareció en un huerto junto a la puerta de Nuceria, la que daba al camino del interior. Caminaban con dificultad sobre la capa de piedras, cargando con lo poco que habían querido salvar, cuando la nube ardiente los alcanzó a pocos metros de la muralla. Habían elegido el camino correcto, pero lo hicieron con muchas horas de retraso. Entre ellos, los arqueólogos encontraron a un hombre de más de sesenta años. Apretaba contra el pecho una bolsa de cuero llena de monedas de plata y de bronce, y llevaba varias tablillas de cera con cuentas de dinero. Colgada del cuello con un cordón, tenía todavía una llave de hierro."
         },
         {
-          "titulo": "Lo que se oye",
-          "fuente": "Nota escrita en el borde de la tablilla",
-          "texto": "Ya casi han terminado de estudiar la tablilla cuando Matteo, que la observa con una lupa, descubre algo que se les había escapado. En el borde de madera, casi pegada a la bisagra, hay una frase escrita con letras diminutas, como si el autor la hubiera añadido a última hora, con prisa: «Por las noches oigo un ruido grave bajo el suelo, como un carro enorme que pasa sin parar, y nadie más en la casa se despierta». La vulcanóloga explica que, cuando el magma se mueve bajo un volcán, puede provocar retumbos y vibraciones que, a veces, se oyen como un rugido lejano. Muchas personas que han vivido cerca de volcanes antes de una erupción han contado algo parecido. Irene cierra la lupa y mira a su equipo. «Esta frase nos dice algo de quien la escribió», comenta. «Podía oír, y oía muy bien, porque se despertaba con un ruido que nadie más notaba». Con esta última pista, en tu lista solo debería quedar una persona."
+          "titulo": "El último trozo de la lápida",
+          "fuente": "Fragmento de la lápida de Neápolis",
+          "texto": "En un almacén del museo de Nápoles, una restauradora encuentra un trozo de piedra que encaja perfectamente con la lápida rota. No tiene el nombre del superviviente, pero sí unas líneas en las que cuenta cómo se salvó: «Durante todo aquel verano, cada mañana, subía a la montaña y veía cómo se secaban las fuentes de las granjas. Mis mulas, que nunca me habían fallado, se negaban a subir por la ladera y daban coces de miedo. Por eso, cuando la montaña rugió, no esperé ni una hora: subí a mi familia al carro y salimos por la puerta del camino del interior mientras todavía caían las primeras piedras. Al anochecer ya estábamos lejos». La vulcanóloga del equipo explica que fue justo lo que había que hacer: durante las primeras horas de la lluvia de piedra pómez todavía se podía escapar, y quien se alejó entonces de la ciudad tuvo muchas posibilidades de salvarse. Con esta última pista, solo te debería quedar una persona."
         }
       ],
-      "final": "La tablilla la escribió Elpis. Había vivido el terremoto del 62 cuando era una niña, sabía escribir en griego mejor que nadie en la casa y pasaba las tardes en el jardín observando y apuntándolo todo. Nadie le hizo caso: una esclava no podía decidir el destino de la familia. Los arqueólogos no saben si ella consiguió escapar. Pero en la casa no se han encontrado restos humanos y la puerta del jardín apareció abierta, como si alguien se hubiera marchado deprisa con los niños hacia el camino de Nuceria.",
+      "final": "El superviviente fue Lucio Vibio, el arriero. Su trabajo le salvó la vida: cada mañana subía por las laderas del Vesubio y, durante aquel verano, vio lo que nadie notaba desde la ciudad. Las fuentes se secaban y sus mulas tenían miedo de la montaña. Cuando el volcán estalló a la una de la tarde, no esperó: subió a su mujer y a su hija al carro y salió por la puerta de Nuceria cuando apenas empezaba a caer la piedra pómez. Sus cinco compañeros del altar no tuvieron tanta suerte. Cornelia bajó al puerto a esperar un barco que nunca pudo acercarse a la orilla. Aulo se encerró con su familia en su casa «a prueba de terremotos», y el techo se hundió bajo el peso de las piedras. Gneo no quiso huir y se quedó con sus gladiadores; con su pierna coja, tampoco habría podido correr. Julia se quedó en la ciudad para atender a los heridos de los tejados hundidos, como había prometido a su padre. Y Quinto no quiso separarse de su dinero: salió por la misma puerta que Lucio, pero casi dieciocho horas después. Años más tarde, ya instalado en Neápolis, Lucio mandó grabar una lápida para dar gracias a los dioses y recordar a sus cinco vecinos.",
       "saber_mas": [
-        "La erupción del Vesubio del año 79 sepultó Pompeya, Herculano y Estabia bajo ceniza, piedra pómez y nubes ardientes de gas y roca llamadas flujos piroclásticos.",
-        "Plinio el Joven vio la erupción desde Miseno y la describió en dos cartas al historiador Tácito. Comparó la nube con un pino piñonero. Su tío, Plinio el Viejo, murió intentando rescatar a personas por mar.",
-        "La fecha tradicional de la erupción es el 24 de agosto, pero en 2018 apareció en Pompeya una inscripción a carbón que hace pensar a muchos expertos que ocurrió en octubre.",
-        "Las excavaciones de Pompeya empezaron en 1748. En 1863 el arqueólogo Giuseppe Fiorelli tuvo la idea de rellenar con yeso los huecos que habían dejado los cuerpos en la ceniza."
+        "Plinio el Joven vio la erupción desde Miseno, al otro lado de la bahía, y la describió en dos cartas al historiador Tácito. Su tío, Plinio el Viejo, murió en la playa de Estabia, donde intentaba rescatar a varios amigos.",
+        "En Pompeya se han encontrado los restos de más de mil cien personas. Una parte de la ciudad todavía no se ha excavado, pero los historiadores creen que la mayoría de sus habitantes consiguió huir durante las primeras horas de la erupción.",
+        "Junto a la puerta de Nuceria se encuentra el llamado Huerto de los Fugitivos, donde aparecieron trece personas que intentaron escapar al amanecer del 25 de agosto. Sus moldes de yeso son de las imágenes más conocidas de Pompeya.",
+        "En la playa de Herculano, dentro de los almacenes donde se guardaban las barcas, se encontraron unos trescientos esqueletos de personas que esperaban ser rescatadas por mar.",
+        "Un historiador ha encontrado apellidos típicos de Pompeya y Herculano en inscripciones de ciudades cercanas, como Nápoles, Puteoli o Cumas. Es una señal de que muchos supervivientes empezaron allí una nueva vida.",
+        "En 1863, el arqueólogo Giuseppe Fiorelli tuvo la idea de rellenar con yeso los huecos que habían dejado los cuerpos en la ceniza. La fecha tradicional de la erupción es el 24 de agosto, pero una inscripción encontrada en 2018 hace pensar a muchos expertos que ocurrió en octubre."
       ],
-      "pregunta": "Explica con tus palabras qué pista te permitió descartar a Aulo Pacuvio y por qué. Después, escribe dos señales que avisaban de la erupción según la tablilla.",
+      "pregunta": "Explica con tus palabras qué pista te permitió descartar a Aulo Pacuvio y por qué. Después, explica qué hizo Lucio Vibio para salvarse y por qué funcionó.",
       "cuestionario": [
-        "Resume con tus propias palabras el caso «La tablilla del Vesubio»: dónde y cuándo ocurre, cuál era el misterio, quiénes eran los personajes principales y cómo se resolvió.",
+        "Resume con tus propias palabras el caso «El superviviente del Vesubio»: dónde y cuándo ocurre, cuál era el misterio, quiénes eran los personajes principales y cómo se resolvió.",
         "¿Qué pista te pareció más útil para resolver el misterio? Explica qué decía, con qué ficha la relacionaste y por qué fue tan importante.",
         "Elige uno de los descartes que hiciste durante la investigación y explica, paso a paso, qué dato de la ficha y qué pista te permitieron hacerlo.",
-        "Elpis vio el peligro, pero nadie le hizo caso porque era una esclava. ¿Qué opinas de que no se escuchara su aviso por su condición social? ¿Ocurre algo parecido hoy con algunas personas?",
-        "Imagina que vives en Pompeya en agosto del año 79 y lees la tablilla de Elpis. ¿Qué harías? Explica tu decisión y lo que sentirías.",
-        "Explica con tus palabras qué pista te permitió descartar a Aulo Pacuvio y por qué. Después, escribe dos señales que avisaban de la erupción según la tablilla.",
-        "Hoy los científicos vigilan los volcanes con aparatos muy precisos. ¿Crees que es importante invertir dinero en la ciencia para prevenir catástrofes? Razona tu respuesta.",
-        "Ponte en el lugar de Elpis. Escribe en primera persona lo que crees que pensaba y sentía en el momento más importante de la historia.",
-        "Si pudieras cambiar el final de la historia, ¿cómo lo harías? Escribe tu nuevo final y explica por qué te gusta más.",
+        "Muchos pompeyanos murieron porque decidieron quedarse en casa o esperar un barco en la playa. Explica, con lo que has aprendido en el caso, por qué esas decisiones fueron tan peligrosas.",
+        "Hubo avisos durante días, pero casi nadie les hizo caso. ¿Por qué crees que pasó? ¿Ocurre algo parecido hoy cuando la gente recibe avisos de peligro, como tormentas, incendios o inundaciones?",
+        "Imagina que vives en Pompeya el 24 de agosto del año 79 y ves la nube sobre el Vesubio. ¿Qué harías? Explica tu decisión con todo lo que sabes ahora.",
+        "Gneo no quiso abandonar a sus gladiadores y Julia se quedó en la ciudad para atender a los heridos. ¿Fueron decisiones valientes, equivocadas o las dos cosas a la vez? Da tu opinión y justifícala.",
+        "Hoy el Vesubio sigue activo y a su alrededor viven cientos de miles de personas. Los científicos lo vigilan con aparatos muy precisos. ¿Crees que es importante invertir dinero en la ciencia para prevenir catástrofes? Razona tu respuesta.",
+        "Ponte en el lugar de Lucio Vibio. Escribe en primera persona lo que pensó y sintió desde que la montaña rugió hasta que llegó a un lugar seguro.",
         "¿Qué has aprendido con este caso que no supieras antes? ¿Te ha parecido interesante? Da tu opinión y justifícala con ejemplos del texto."
       ]
     },
