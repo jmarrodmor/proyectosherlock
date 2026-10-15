@@ -118,13 +118,10 @@ h1,h2,h3{margin:0;text-wrap:balance}
 .back:hover{color:var(--fg)}
 .read h1{font-size:clamp(56px,10vw,108px)}
 .read .lead p{font-family:var(--read);font-size:19.5px;line-height:1.72;margin:0 0 1em;color:#e9e6df}
-/* Secciones numeradas de la introducción, con el color de la asignatura */
-.read .lead{counter-reset:secc}
-.read .lead p{counter-increment:secc}
-.read .lead p::before{content:counter(secc);float:left;font-family:var(--display);font-size:52px;line-height:.82;padding:6px 14px 0 0;color:var(--case,var(--acc))}
-details.reread{counter-reset:secc}
-details.reread p{counter-increment:secc}
-details.reread p::before{content:counter(secc);float:left;font-family:var(--display);font-size:38px;line-height:.85;padding:4px 10px 0 0;color:var(--case,var(--acc))}
+/* Secciones numeradas de la introducción (párrafos que empiezan por § en casos.json) */
+.read .lead p.isec:not(:first-child),details.reread p.isec:not(:first-of-type){margin-top:2.2em}
+.secn{float:left;font-family:var(--display);font-size:56px;line-height:.8;padding:6px 14px 0 0;color:var(--case,var(--acc))}
+details.reread .secn{font-size:40px;padding:4px 10px 0 0}
 .mission{border-left:4px solid var(--case,var(--acc));padding:6px 0 6px 18px;font-family:var(--read);font-style:italic;font-size:20px}
 .banner{border-radius:10px;overflow:hidden;line-height:0;position:relative}
 .banner img{width:100%;height:auto;max-height:360px;object-fit:cover}
